@@ -104,15 +104,14 @@ elif btn2:
                 if tentativa == token_real:
                     acertou = True
 
-            # feedback
-            if acertou:
-                st.session_state.acertos += 1
-                resultado_box.error("🚨 Hacker conseguiu acertar o token!")
-                with st.spinner("⚠️ Hacker acertou! Analisando..."):
-                    token_box.markdown(f"### 🔹 Token #{i+1} — **{token_real}**")
-                    tentativas_texto = f"- Tentativa {t+1}: `{tentativa}`\n"
-                    tentativa_box.markdown(tentativas_texto)
-                    time.sleep(5)
+                    if acertou:
+                        st.session_state.acertos += 1
+                        resultado_box.error("🚨 Hacker conseguiu acertar o token!")
+                        with st.spinner("⚠️ Hacker acertou! Analisando..."):
+                            token_box.markdown(f"### 🔹 Token #{i+1} — **{token_real}**")
+                            tentativas_texto = f"- Tentativa {t+1}: `{tentativa}`\n"
+                            tentativa_box.markdown(tentativas_texto)
+                            time.sleep(5)
 
 
         st.subheader("📊 Resultado geral da simulação")
